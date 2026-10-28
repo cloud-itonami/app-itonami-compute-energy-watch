@@ -23,14 +23,40 @@
 | ITU | `restricted` | https://www.itu.int/en/Pages/copyright.aspx | 一般規定のみ。統計・出版物の再利用は許諾の申請が必要（jur@itu.int）。報道資料は ITU を出典に明記すれば可 |
 | TeleGeography | `excluded` (データ) / `restricted` (地図) | https://www2.telegeography.com/cite-telegeography-map | 公開地図は CC BY-SA 4.0。背後のデータは有料ライセンス。地図の再利用は SA の条件を満たす場合のみ |
 | WSTS | `excluded` | https://www.wsts.org/ | 全出版物が WSTS の著作物で、許諾なしの複製は禁止。無料の Historical Billings Report にも再利用の明示許諾はない。月次レポートは会員限定 |
-| ENTSO-E Transparency Platform | `unverified` | (現行の利用規約ページを読めなかった) | 過去の資料では、再利用の可否が項目ごとに異なり、制限が付いたことがある。現行条件を確認するまで取得しない |
-| TOP500 | `unverified` | https://www.top500.org/ | 利用条件の記載を確認できなかった（著作権表記のみ）。取得しない。条件ページ（Imprint 等）の確認が次の手順 |
-| SIA, SEMI | `unverified` | — | 今回は確認していない。取得しない |
+| ENTSO-E Transparency Platform | `unverified` | 二次資料のみ（現行の利用規約ページを読めなかった） | 2019 年以降、TSO のデータは open data licence で公開する方針とされるが、全データに及ぶかは争いがあり、標準の CC ライセンスではないという指摘もある。現行の Terms and Conditions を読むまで取得しない |
+| TOP500 | `unverified` | https://www.top500.org/, https://www.top500.org/project/ | 利用条件の記載がなく、著作権表記（Copyright 1993-2026 TOP500.org）のみ。許諾なしの再利用可否は不明。取得しない |
+| SEMI（World Fab Forecast） | `excluded` | https://www.semi.org/en/products-services/market-data/faqs | 派生物は社内利用のみ。外部公開は SEMI の許諾が必要（個別審査）。公表する digest に使えない |
+| SEMI（装置 billings の公表資料） | `unverified` | — | 再利用方針を確認できなかった。問い合わせ先は mktstats@semi.org |
+| SIA | `unverified` | — | 利用規約ページを読めなかった（推測した URL が 404）。取得しない |
+| Cloudflare Radar | `unverified` | https://radar.cloudflare.com/about | 403 で読めなかった。取得しない |
 
 ## 帰結
 
 - 今すぐ取得してよい候補は **EIA、Ember、Epoch AI** のみ（いずれも承認を得た上で）。
 - 電力は EIA と Ember、GPU/計算は Epoch AI でカバーできる。**CPU、network、storage は、現時点で `verified` な源がない。** これらの軸は `UNKNOWN` のままにする。
 - IEA は、無料報告書の CC BY 4.0 部分のみ。データセットの自動取得はしない。
-- 半導体（CPU・storage の出荷・製造）と network の公開データは、許諾を取るか、別の源（各社決算など、出典ごとの確認）を探す必要がある。これは JUN-524 の指標表で扱う。
-- `unverified` の源の確認を進める場合は、各源の運営者の利用条件ページを読む。判断が割れる場合は owner 判断として記録する。
+- 半導体（CPU・storage の出荷・製造）と network の公開データは、許諾を取るか、別の源（各社決算など、出典ごとの確認）を探す必要がある。
+
+## CPU・network・storage の源探し (JUN-535) の結論
+
+2026-10-28 の探索では、**3 資源クラスのいずれにも `verified` な源は見つからなかった**。
+
+| 資源 | 見つからなかった根拠 |
+|---|---|
+| CPU | WSTS と SEMI の World Fab Forecast は外部公開に許諾が必要。SIA は規約を読めなかった |
+| storage | 同上。専用の公開統計は見つけていない |
+| network | ITU は許諾が必要、TeleGeography のデータは有料、Cloudflare Radar は規約を読めなかった |
+
+この探索は網羅的ではない（IXP の公開統計、各社の決算資料などは未調査）。見つからなかったことは、
+存在しないことを意味しない。
+
+## owner 判断が必要なこと（bot は自分で申請しない）
+
+| 項目 | 内容 | 宛先 |
+|---|---|---|
+| ITU 統計の再利用許諾 | 統計・出版物は許諾の申請が必要 | jur@itu.int |
+| SEMI 資料の外部公開許諾 | 派生物の外部公開は個別審査 | mktstats@semi.org |
+| WSTS | 許諾なしの複製は禁止 | WSTS（サイトの連絡先） |
+| 各社決算など出典ごとの確認 | 次の探索の方向 | — |
+
+許諾の申請は外部への連絡なので、owner の承認を得てから行う。

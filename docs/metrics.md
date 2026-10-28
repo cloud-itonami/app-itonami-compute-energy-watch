@@ -33,8 +33,8 @@
 
 | 資源 | 軸 | 状態 | 次の手 |
 |---|---|---|---|
-| CPU | 生産/供給、需要、消費 | `UNKNOWN` | WSTS は `excluded`。SIA、SEMI、各社決算（出典ごとに権利確認）を調べる |
-| network | 生産/供給、需要、消費 | `UNKNOWN` | ITU は許諾が必要、TeleGeography データは有料。IXP の公開統計の利用条件を調べる |
+| CPU | 生産/供給、需要、消費 | `UNKNOWN` | WSTS と SEMI World Fab Forecast は `excluded`。SIA は規約を読めず `unverified`。各社決算（出典ごとに権利確認）が次の探索先 |
+| network | 生産/供給、需要、消費 | `UNKNOWN` | ITU は許諾が必要、TeleGeography データは有料、Cloudflare Radar は規約を読めず `unverified`。IXP の公開統計の利用条件が次の探索先 |
 | storage | 生産/供給、需要、消費 | `UNKNOWN` | 各社決算、業界統計の利用条件を調べる |
 
 ## 規則
@@ -53,4 +53,5 @@
 | 各指標の出典 URL・単位・頻度 | 出典 URL は記載。単位・頻度の多くは `要確認`（初回稼働で確定） |
 | docs/metrics.md として PR merge | この文書 |
 
-CPU・network・storage の源が見つかるまで、5 資源クラス全てに指標がある状態にはならない。
+CPU・network・storage の源探し（JUN-535）では `verified` な源が見つからなかった（[`data-sources.md`](data-sources.md)）。
+5 資源クラス全てに指標がある状態にするには、owner による許諾申請の判断か、追加の探索が必要。
