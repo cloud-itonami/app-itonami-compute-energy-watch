@@ -28,7 +28,9 @@
 | SEMI（World Fab Forecast） | `excluded` | https://www.semi.org/en/products-services/market-data/faqs | 派生物は社内利用のみ。外部公開は SEMI の許諾が必要（個別審査）。公表する digest に使えない |
 | SEMI（装置 billings の公表資料） | `unverified` | — | 再利用方針を確認できなかった。問い合わせ先は mktstats@semi.org |
 | SIA | `unverified` | — | 利用規約ページを読めなかった（推測した URL が 404）。取得しない |
-| Cloudflare Radar | `unverified` | https://radar.cloudflare.com/about | 403 で読めなかった。取得しない |
+| Cloudflare Radar | `restricted` | https://radar.cloudflare.com/about （直接は 403。Cloudflare の開発者文書と about ページの記述を検索経由で確認） | Radar API と直接ダウンロードのデータは **CC BY-NC 4.0**（非営利のみ）。埋め込みグラフ・画像は CC BY 4.0。商用の可否は例外申請の窓口が about ページにある。bot の digest が商用に当たるかは owner 判断 |
+| IXP の公開統計（DE-CIX、AMS-IX、LINX 等） | `unverified` | — | 現行の利用規約を見つけられなかった。IXP ごとに統計ページと規約を確認する必要がある |
+| ストレージ出荷の統計（Trendfocus 等の調査会社） | `excluded` | — | 商用の調査レポートで、転載記事にも利用条件の記載がない。公開データではない |
 
 ## 帰結
 
@@ -44,8 +46,8 @@
 | 資源 | 見つからなかった根拠 |
 |---|---|
 | CPU | WSTS と SEMI の World Fab Forecast は外部公開に許諾が必要。SIA は規約を読めなかった |
-| storage | 同上。専用の公開統計は見つけていない |
-| network | ITU は許諾が必要、TeleGeography のデータは有料、Cloudflare Radar は規約を読めなかった |
+| storage | 同上。出荷統計は商用調査会社のもので、公開データを見つけていない |
+| network | ITU は許諾が必要、TeleGeography のデータは有料、Cloudflare Radar は非営利ライセンス（CC BY-NC 4.0）、IXP の統計は現行規約を見つけられなかった |
 
 この探索は網羅的ではない（IXP の公開統計、各社の決算資料などは未調査）。見つからなかったことは、
 存在しないことを意味しない。
@@ -57,6 +59,9 @@
 | ITU 統計の再利用許諾 | 統計・出版物は許諾の申請が必要 | jur@itu.int |
 | SEMI 資料の外部公開許諾 | 派生物の外部公開は個別審査 | mktstats@semi.org |
 | WSTS | 許諾なしの複製は禁止 | WSTS（サイトの連絡先） |
+| Cloudflare Radar の商用可否 | CC BY-NC 4.0。digest が商用に当たるか判断し、商用なら例外を申請 | Radar about ページの連絡先 |
 | 各社決算など出典ごとの確認 | 次の探索の方向 | — |
+
+申請文のドラフトは [`permission-requests.md`](permission-requests.md)（未送信）。
 
 許諾の申請は外部への連絡なので、owner の承認を得てから行う。
