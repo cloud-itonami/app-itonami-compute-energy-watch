@@ -9,7 +9,7 @@
  :placement {:mode :local :inference-rail :murakumo}
  :inference {:rails [:murakumo] :authorities ["api.murakumo.cloud"] :deny-hosts ["openrouter.ai"]}
  :state {:workspace :host-local :results :cid-receipts :secrets :never-leave-host}
- :ids {:repo "cloud-itonami/compute-energy-watch"}
+ :ids {:repo "cloud-itonami/app-itonami-compute-energy-watch"}
  :authority {:default-decision :approval-required :source :yakuwari :ref "yakuwari.edn"}
  :capabilities [:read_source :fetch_public_source :write_digest]
  :org/world :host
