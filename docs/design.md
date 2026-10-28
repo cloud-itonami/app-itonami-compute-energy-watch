@@ -36,8 +36,8 @@
 |---|---|
 | `verified` | EIA、Ember、Epoch AI（承認を得た上で取得可。取得時に個別条件を再確認） |
 | `restricted` | IEA（無料報告書の CC BY 4.0 部分のみ）、ITU（統計は許諾が必要）、TeleGeography の地図（CC BY-SA） |
-| `excluded` | WSTS、TeleGeography のデータ（有料） |
-| `unverified` | ENTSO-E、TOP500、SIA、SEMI |
+| `excluded` | WSTS、TeleGeography のデータ（有料）、SEMI World Fab Forecast |
+| `unverified` | ENTSO-E、TOP500、SIA、SEMI の公表資料、Cloudflare Radar |
 
 CPU・network・storage に `verified` な源はまだない。該当する軸は `UNKNOWN` とする。
 有料レポート（調査会社のサブスクリプション等）は、契約がない限り対象外。
@@ -77,6 +77,6 @@ CPU・network・storage に `verified` な源はまだない。該当する軸�
 
 ## 残り
 
-1. `unverified` の源（ENTSO-E、TOP500、SIA、SEMI）の確認と、CPU・network・storage の源探し（JUN-523 の続き / JUN-524）。
+1. CPU・network・storage の `verified` な源は未発見（JUN-535 の探索結果）。許諾申請は owner 判断。
 2. 指標表の初期セットの確定（JUN-524）。
 3. 初回稼働（承認付き、1 指標）と読み戻し（JUN-525）。
