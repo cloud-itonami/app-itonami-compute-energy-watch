@@ -6,8 +6,8 @@
 ## 状態
 
 - 起票 2026-10-28。profile 定義は `hermes/profiles/compute-energy-watch/`。
-- **すべてのデータ源の権利状況は `unverified`。** 下の候補は調査の出発点であり、利用許諾を
-  確認するまで bot は取得しない（SOUL.md 手順 2）。
+- データ源の権利状況は 2026-10-28 に一部確認済み（下の「データ源と権利状況」）。`verified` 以外の源は
+  bot が取得しない（SOUL.md 手順 2）。
 - ランタイム未検証。レジストリ登録は「定義の公開」であり、稼働や権限を意味しない。
 
 ## 指標の分類
@@ -27,16 +27,19 @@
 - `own-estimate`: bot の推定（式と前提を必ず併記）
 - `UNKNOWN`: 取得できない
 
-## 候補データ源（権利は未確認）
+## データ源と権利状況
 
-| 資源 | 候補 | 備考 |
-|---|---|---|
-| 電力 | IEA、Ember、EIA、ENTSO-E | 利用条件・再配布条件を確認する |
-| 半導体全般 | WSTS、SIA、SEMI | 有料または再配布制限の可能性。要確認 |
-| GPU/計算 | TOP500、Epoch AI | ライセンスを確認する |
-| network | ITU、TeleGeography、各 IXP の公開統計 | 一部は有料。要確認 |
-| storage | 公開された企業決算・業界統計 | 出典ごとに確認する |
+2026-10-28 に主要な源の公開条件を確認した。詳細と根拠は [`data-sources.md`](data-sources.md)。
+区分は `verified` / `restricted` / `excluded` / `unverified`。
 
+| 区分 | 源 |
+|---|---|
+| `verified` | EIA、Ember、Epoch AI（承認を得た上で取得可。取得時に個別条件を再確認） |
+| `restricted` | IEA（無料報告書の CC BY 4.0 部分のみ）、ITU（統計は許諾が必要）、TeleGeography の地図（CC BY-SA） |
+| `excluded` | WSTS、TeleGeography のデータ（有料） |
+| `unverified` | ENTSO-E、TOP500、SIA、SEMI |
+
+CPU・network・storage に `verified` な源はまだない。該当する軸は `UNKNOWN` とする。
 有料レポート（調査会社のサブスクリプション等）は、契約がない限り対象外。
 
 ## 既存 repo との責務境界
@@ -67,13 +70,13 @@
 
 | 受入条件 | 状態 |
 |---|---|
-| 対象指標・データ源・出典ポリシーの設計文書 | この文書。データ源の権利確認が未了 |
+| 対象指標・データ源・出典ポリシーの設計文書 | この文書と data-sources.md。権利確認は主要 10 源のうち 3 源が verified。指標表は JUN-524 |
 | registry 登録と安全な初回稼働の読み戻し | 登録は PR で行う。初回稼働は未実施 |
 | 出典と取得日、推定と実測の区別 | SOUL.md と本書に規則を記載。運用での検証は未了 |
 | 投資助言をしない | SOUL.md と yakuwari.edn で禁止。運用での検証は未了 |
 
 ## 残り
 
-1. データ源ごとの利用条件の確認（権利 `verified` へ）。
-2. 指標表の初期セットの確定。
-3. 初回稼働（承認付き、1 指標）と読み戻し。
+1. `unverified` の源（ENTSO-E、TOP500、SIA、SEMI）の確認と、CPU・network・storage の源探し（JUN-523 の続き / JUN-524）。
+2. 指標表の初期セットの確定（JUN-524）。
+3. 初回稼働（承認付き、1 指標）と読み戻し（JUN-525）。
