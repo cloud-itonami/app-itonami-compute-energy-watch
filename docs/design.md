@@ -59,7 +59,7 @@ CPU・network・storage に `verified` な源はまだない。該当する軸�
 共有 runtime `kotoba-lang/wasm-webcomponent/src/kotoba-client-runtime.js` は origin/main に存在する
 （PR 26 で merge 済み、2026-10-28 に `git ls-tree origin/main` で確認）。ローカルの checkout が古いと
 見えないので、確認は origin/main に対して行う。dapp は独自のコピーを作らず、この実装を取り込む。
-digest の形式が確定するまで dapp の実装には着手しない。
+digest の形式は [`digest-format.md`](digest-format.md) に定めた。初回稼働（JUN-525）の後に dapp の実装へ着手する。
 
 ## 外部アクセスとプライバシー
 
