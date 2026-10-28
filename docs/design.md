@@ -70,7 +70,7 @@ CPU・network・storage に `verified` な源はまだない。該当する軸�
 
 | 受入条件 | 状態 |
 |---|---|
-| 対象指標・データ源・出典ポリシーの設計文書 | この文書と data-sources.md。権利確認は主要 10 源のうち 3 源が verified。指標表は JUN-524 |
+| 対象指標・データ源・出典ポリシーの設計文書 | この文書と data-sources.md。権利確認は主要 10 源のうち 3 源が verified。指標表は metrics.md（電力・GPU のみ。CPU・network・storage は UNKNOWN） |
 | registry 登録と安全な初回稼働の読み戻し | 登録は PR で行う。初回稼働は未実施 |
 | 出典と取得日、推定と実測の区別 | SOUL.md と本書に規則を記載。運用での検証は未了 |
 | 投資助言をしない | SOUL.md と yakuwari.edn で禁止。運用での検証は未了 |
