@@ -35,9 +35,9 @@
 | 区分 | 源 |
 |---|---|
 | `verified` | EIA、Ember、Epoch AI（承認を得た上で取得可。取得時に個別条件を再確認） |
-| `restricted` | IEA（無料報告書の CC BY 4.0 部分のみ）、ITU（統計は許諾が必要）、TeleGeography の地図（CC BY-SA） |
+| `restricted` | IEA（無料報告書の CC BY 4.0 部分のみ）、ITU（統計は許諾が必要）、TeleGeography の地図（CC BY-SA）、Cloudflare Radar（CC BY-NC 4.0） |
 | `excluded` | WSTS、TeleGeography のデータ（有料）、SEMI World Fab Forecast |
-| `unverified` | ENTSO-E、TOP500、SIA、SEMI の公表資料、Cloudflare Radar |
+| `unverified` | ENTSO-E、TOP500、SIA、SEMI の公表資料、IXP の公開統計 |
 
 CPU・network・storage に `verified` な源はまだない。該当する軸は `UNKNOWN` とする。
 有料レポート（調査会社のサブスクリプション等）は、契約がない限り対象外。
@@ -53,6 +53,13 @@ CPU・network・storage に `verified` な源はまだない。該当する軸�
 
 `app-open-power` は README 冒頭だけ確認した（配電網の設計と運用、停電・検針）。世界の
 需給分析は含まない。
+
+## dapp の前提 (JUN-526)
+
+共有 runtime `kotoba-lang/wasm-webcomponent/src/kotoba-client-runtime.js` は origin/main に存在する
+（PR 26 で merge 済み、2026-10-28 に `git ls-tree origin/main` で確認）。ローカルの checkout が古いと
+見えないので、確認は origin/main に対して行う。dapp は独自のコピーを作らず、この実装を取り込む。
+digest の形式が確定するまで dapp の実装には着手しない。
 
 ## 外部アクセスとプライバシー
 

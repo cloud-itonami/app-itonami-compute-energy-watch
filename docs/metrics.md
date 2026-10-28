@@ -34,8 +34,8 @@
 | 資源 | 軸 | 状態 | 次の手 |
 |---|---|---|---|
 | CPU | 生産/供給、需要、消費 | `UNKNOWN` | WSTS と SEMI World Fab Forecast は `excluded`。SIA は規約を読めず `unverified`。各社決算（出典ごとに権利確認）が次の探索先 |
-| network | 生産/供給、需要、消費 | `UNKNOWN` | ITU は許諾が必要、TeleGeography データは有料、Cloudflare Radar は規約を読めず `unverified`。IXP の公開統計の利用条件が次の探索先 |
-| storage | 生産/供給、需要、消費 | `UNKNOWN` | 各社決算、業界統計の利用条件を調べる |
+| network | 生産/供給、需要、消費 | `UNKNOWN` | ITU は許諾が必要、TeleGeography データは有料、Cloudflare Radar は CC BY-NC 4.0（非営利のみ。商用可否は owner 判断）。IXP は統計ページごとの規約確認が次の探索先 |
+| storage | 生産/供給、需要、消費 | `UNKNOWN` | 出荷統計は商用調査会社のもの（`excluded`）。各社決算の公開資料が次の探索先 |
 
 ## 規則
 
